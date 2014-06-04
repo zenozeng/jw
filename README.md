@@ -12,11 +12,27 @@
 
 - 各个部分的增删改查功能
 
+## Build
+
+```
+sudo apt-get install clang
+make build
+```
+
 ## 约定
 
 我们直接用文件目录结构作为数据库来存储吧！
 
-```
-» ls db
-courses  courses_pending  scores  users
-```
+### user
+
+#### group
+
+0: 学生
+1: 老师
+2: 管理员
+
+#### password
+
+这个是密码的简单单次 md5，
+这里只是示意一下，
+实际使用请加强此块。
