@@ -20,10 +20,15 @@ void Session::login() {
     string username, password;
     cout << "Username: ";
     cin >> username;
-    if(username.length() > 0 && fexists("db/users/"+username)) {
-        cout << "Password: ";
-        cin >> password;
+    // cin 保证了不为空，所以这里就不进行　username 的长度检查
+    if(is_valid_username(username)) {
+        if(fexists("db/users/"+username)) {
+            cout << "Password: ";
+            cin >> password;
+        } else {
+            cout << "User not exists!" << endl;
+        }
     } else {
-        cout << "User not exists!" << endl;
+            cout << "Invalid username!" << endl;
     }
 }

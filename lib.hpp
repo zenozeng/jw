@@ -5,5 +5,6 @@
 
 bool fexists(std::string filename);
 bool fexists(const char *filename);
+bool is_valid_username(std::string str);
 
 #endif
