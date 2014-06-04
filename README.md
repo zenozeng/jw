@@ -25,6 +25,12 @@ make build
 
 ### user
 
+默认用户：
+
+USERNAME: admin
+
+PWD: 123456
+
 #### group
 
 0: 学生
