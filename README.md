@@ -33,9 +33,11 @@ PWD: 123456
 
 #### group
 
-0: 学生
-1: 老师
-2: 管理员
+- student
+
+- teacher
+
+- administrator
 
 #### password
 

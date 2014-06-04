@@ -8,8 +8,7 @@ using namespace std;
  */
 Session::Session() {
     this->username = "";
-    this->password = "";
-    this->group = -1;
+    this->group = "";
 }
 
 /**
@@ -31,6 +30,11 @@ void Session::login() {
             if( hash == hash_in_db ) {
                 cout << "Hash Match!" << endl;
                 cout << "Login success!" << endl;
+                string group = file_get_contents("db/users/"+username+"/group");
+                cout << "Username: " << username << endl;
+                cout << "Group: " << group << endl;
+                this->username = username;
+                this->group = group;
             } else {
                 cout << "Hash not Match!" << endl;
             }
