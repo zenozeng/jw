@@ -3,7 +3,7 @@
 using namespace std;
 
 void help() {
-    cout << "Commands: user/login, user/create, user/read, user/update, user/delete" << endl;
+    cout << "Commands: user/login, user/logout, user/create, user/read, user/update, user/delete" << endl;
 }
 
 int main() {
