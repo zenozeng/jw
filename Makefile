@@ -1,3 +1,3 @@
 build: *.cpp *.hpp
-	clang++ main.cpp
+	clang++ *.cpp
 	./a.out

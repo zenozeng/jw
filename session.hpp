@@ -1,6 +1,9 @@
 #ifndef JW_SESSION_H
 #define JW_SESSION_H
 
+#include "iostream"
+#include "lib.hpp"
+
 class Session {
 
 public:

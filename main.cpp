@@ -30,7 +30,7 @@ int main() {
         }
 
         if (cmd == "user/login") {
-            // session.login();
+            session.login();
         }
     };
 
