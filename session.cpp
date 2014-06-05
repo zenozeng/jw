@@ -45,3 +45,13 @@ void Session::login() {
             cout << "Invalid username!" << endl;
     }
 }
+
+/**
+ * Login
+ *
+ */
+void Session::logout() {
+    this->username = "";
+    this->group = "";
+    cout << "Logout success!" << endl;
+}

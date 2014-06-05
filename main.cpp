@@ -3,7 +3,7 @@
 using namespace std;
 
 void help() {
-    cout << "Commands: user/login, user/logout, user/create, user/read, user/update, user/delete" << endl;
+    cout << "Commands: login, logout, user/create, user/read, user/update, user/delete" << endl;
 }
 
 int main() {
@@ -29,8 +29,12 @@ int main() {
             help();
         }
 
-        if (cmd == "user/login") {
+        if (cmd == "login") {
             session.login();
+        }
+
+        if (cmd == "logout") {
+            session.logout();
         }
     };
 
