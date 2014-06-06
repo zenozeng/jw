@@ -28,6 +28,12 @@ std::string file_get_contents(const std::string filename) {
     return str;
 }
 
+void file_put_contents(const std::string filename, const std::string contents) {
+    std::ofstream outfile (filename.c_str());
+    outfile << contents;
+    outfile.close();
+}
+
 std::string md5(std::string str) {
     hashwrapper *myWrapper = new md5wrapper();
     return myWrapper->getHashFromString(str);
