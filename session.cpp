@@ -35,6 +35,7 @@ void Session::login() {
                 cout << "Group: " << group << endl;
                 this->username = username;
                 this->group = group;
+                return;
             } else {
                 cout << "Hash not Match!" << endl;
             }
@@ -44,6 +45,7 @@ void Session::login() {
     } else {
             cout << "Invalid username!" << endl;
     }
+    this->login();
 }
 
 /**
