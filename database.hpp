@@ -1,3 +1,6 @@
+#ifndef JW_DATABASE_H
+#define JW_DATABASE_H
+
 #include "lib.hpp"
 
 class Database {
@@ -7,3 +10,5 @@ public:
     std::string get(std::string key);
     void remove(std::string key);
 };
+
+#endif

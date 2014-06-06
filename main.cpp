@@ -3,7 +3,13 @@
 using namespace std;
 
 void help() {
-    cout << "Commands: login, logout, user/create, user/read, user/update, user/delete" << endl;
+    cout << "Commands:" << endl;
+    cout << "    help, login, logout, change password" << endl;
+    cout << "Commands for Teachers:" << endl;
+    cout << "    TODO" << endl;
+    cout << "Commands for Admin:" << endl;
+    cout << "    user/create, user/info, user/update, user/delete" << endl;
+    cout << "    course/create, course/info, course/update, course/delete" << endl;
 }
 
 int main() {
@@ -14,11 +20,14 @@ int main() {
     cout << "Licensed under AGPL. See LICENSE for detail." << endl;
     cout << endl;
 
-    // Display usage
-    help();
 
     // Create Session Instance
     Session session;
+
+    cout << "Default ID & password: admin, 123456. " << endl;
+
+    session.login();
+    help()
 
     // Start REPL
     while (true) {

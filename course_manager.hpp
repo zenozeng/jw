@@ -4,8 +4,12 @@
 #include <iostream>
 #include <cstdlib>
 #include "lib.hpp"
+#include "database.hpp"
 
 class CourseManager {
+
+private:
+    Database db;
 
 public:
     CourseManager(void);
@@ -17,7 +21,7 @@ public:
              std::string time,
              std::string location);
 
-    void get(std::string id, std::string key);
+    std::string get(std::string id, std::string key);
 
     void set(std::string id, std::string key, std::string value);
 
