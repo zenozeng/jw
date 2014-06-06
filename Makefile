@@ -1,3 +1,3 @@
 build: *.cpp *.hpp
-	clang++ hashlibpp/*.cpp -w *.cpp
+	g++ hashlibpp/*.cpp -w *.cpp -o a.out
 	./a.out
