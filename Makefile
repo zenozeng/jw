@@ -6,4 +6,8 @@ test: *.cpp *.hpp
 	g++ hashlibpp/*.cpp -w lib.cpp test/test.cpp -o a.out
 	./a.out
 
-.PHONY: test build
+winbuild: *.cpp *.hpp
+	g++ -D _WIN32 hashlibpp/*.cpp -w *.cpp -o a.out
+	./a.out
+
+.PHONY: test build winbuild
