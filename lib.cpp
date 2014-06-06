@@ -28,6 +28,52 @@ std::string file_get_contents(const std::string filename) {
     return str;
 }
 
+void rm_r(std::string path) {
+    std::string dir_path = (path.at( path.length() - 1 ) == '/') ? path : path + "/";
+
+    DIR *dir;
+    struct dirent *ent;
+
+    if ((dir = opendir (dir_path.c_str())) != NULL) {
+        while ((ent = readdir (dir)) != NULL) {
+            std::string filename(ent->d_name);
+            if(!(filename == "." || filename == "..")) {
+                std::string filepath = dir_path + filename;
+                struct stat st;
+                lstat(filepath.c_str(), &st);
+                if(S_ISDIR(st.st_mode)) {
+                    // id dir
+                    rm_r(filepath);
+                } else {
+                    // is file
+                    remove(filepath.c_str());
+                }
+            }
+        }
+        closedir (dir);
+        rmdir(path.c_str());
+    }
+}
+
+std::string ls(const std::string path) {
+    std::string files = "";
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir (path.c_str())) != NULL) {
+        while ((ent = readdir (dir)) != NULL) {
+            std::string filename(ent->d_name);
+            if(!(filename == "." || filename == "..")) {
+                files  = files + filename + "\n";
+            }
+        }
+        closedir (dir);
+        return files;
+    } else {
+        // could not open dir
+        return "";
+    }
+}
+
 void file_put_contents(const std::string filename, const std::string contents) {
     std::ofstream outfile (filename.c_str());
     outfile << contents;
@@ -37,4 +83,14 @@ void file_put_contents(const std::string filename, const std::string contents) {
 std::string md5(std::string str) {
     hashwrapper *myWrapper = new md5wrapper();
     return myWrapper->getHashFromString(str);
+}
+
+void mkpath(std::string path) {
+    std::string current_path = "";
+    for(int i = 0; i < path.size(); i++) {
+        current_path += path[i];
+        if (path[i] == '/') {
+            MKDIR(current_path.c_str());
+        }
+    }
 }
