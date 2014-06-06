@@ -3,10 +3,13 @@
 using namespace std;
 
 void help() {
+    // session view
     cout << "Commands:" << endl;
     cout << "    help, login, logout, change password" << endl;
+    // teacher view
     cout << "Commands for Teachers:" << endl;
     cout << "    TODO" << endl;
+    // Admin view
     cout << "Commands for Admin:" << endl;
     cout << "    user/create, user/info, user/update, user/delete" << endl;
     cout << "    course/create, course/info, course/update, course/delete" << endl;
