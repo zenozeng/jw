@@ -14,9 +14,16 @@
 
 ## Build
 
+### Linux
+
 ```
-sudo apt-get install clang
 make build
+```
+
+### Windows
+
+```
+make winbuild
 ```
 
 ## 约定
