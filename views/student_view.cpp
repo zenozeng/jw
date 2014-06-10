@@ -28,9 +28,15 @@ void StudentView::route (string command) {
 	if (this->status == "courses") return this->get_course(command);
 
 	this->status = command;
-	if (command == "help") return this->help();
-	if (command == "courses") return this->get_courses();
-	if (command == "exit") return this->exit();
+	if (command == "help") {
+            return this->help();
+        }
+	if (command == "courses") {
+            return this->get_courses();
+        }
+	if (command == "exit") {
+            return this->exit();
+        }
 }
 
 void StudentView::get_courses () {
@@ -61,4 +67,8 @@ void StudentView::get_course (string course_id) {
 	cout << "Semester:	" << semester << endl;
 	cout << "Time:	" << time << endl;
 	cout << "Location:	" << location << endl;
+}
+
+void StudentView::exit () {
+    // simply do nothing to release control
 }
