@@ -43,7 +43,6 @@ int main() {
     }
     else if (session.group == "student") {
         student_view.init(session.id);
-        student_view.help();
     }
     
 

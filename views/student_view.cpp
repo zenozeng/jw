@@ -7,8 +7,8 @@ StudentView::StudentView () {
 
 void StudentView::init (string id) {
 	this->id = id;
-	this->name = this->user_manager.get(id, "name");
-	cout << "Welcome, " << this->name << endl;
+	cout << "Welcome, " << this->id << endl;
+        this->help();
 	string command;
 	cin >> command;
 	while (command != "exit") {
