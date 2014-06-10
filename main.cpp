@@ -27,7 +27,10 @@ int main() {
     // Create Session Instance
     Session session;
 
-    cout << "Default ID & password: admin, 123456. " << endl;
+    cout << "Default IDs:" << endl;
+    cout << "    Admin: 10086, 123456" << endl;
+    cout << "    Teacher: 210345, 123456" << endl;
+    cout << "    Student: 3120100890, 123456" << endl;
 
     session.login();
     help();
