@@ -5,9 +5,9 @@ using namespace std;
 StudentView::StudentView () {
 }
 
-void StudentView::init (string id) {
-	this->id = id;
-	this->name = this->user_manager.get(id, "name");
+void StudentView::init (string user_id) {
+	this->id = user_id;
+	this->name = this->user_manager.get(user_id, "name");
 	cout << "Welcome, " << this->name << endl;
 	string command;
 	cin >> command;
@@ -31,6 +31,8 @@ void StudentView::route (string command) {
 	if (command == "help") return this->help();
 	if (command == "courses") return this->get_courses();
 	if (command == "exit") return this->exit();
+	cout << "Command not found." << endl;
+	help();
 }
 
 void StudentView::get_courses () {
@@ -51,14 +53,22 @@ void StudentView::get_courses () {
 
 void StudentView::get_course (string course_id) {
 	string name = this->course_manager.get(course_id, "name");
-	string teacher = this->course_manager.get(course_id, "teacher");
+	string teacher_id = this->course_manager.get(course_id, "teacher");
+	string teacher_name = this->user_manager.get(teacher_id, "name");
 	string semester = this->course_manager.get(course_id, "semester");
 	string time = this->course_manager.get(course_id, "time");
 	string location = this->course_manager.get(course_id, "location");
 
 	cout << "Name:	" << name << endl;
-	cout << "Teacher:	" << teacher << endl;
+	cout << "Teacher:	" << teacher_name << endl;
 	cout << "Semester:	" << semester << endl;
 	cout << "Time:	" << time << endl;
 	cout << "Location:	" << location << endl;
+	cout << endl;
+}
+
+void StudentView::select (string course_id) {
+	string teacher_id = this->course_manager.get(course_id, "teacher");
+	this->student_course_manager.add(this->id, course_id);
+	this->user_manager.set(teacher_id, "courses/" + course_id + "/" + this->id, "");
 }

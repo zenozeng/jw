@@ -7,12 +7,14 @@
 #include "../session.hpp"
 #include "../models/user_manager.hpp"
 #include "../models/course_manager.hpp"
+#include "../models/student_course_manager.hpp"
 
 class StudentView {
 
 private:
 	UserManager user_manager;
 	CourseManager course_manager;
+	StudentCourseManager student_course_manager;
 	std::string status;
 
 public:
@@ -24,6 +26,7 @@ public:
 	void route(std::string command);
 	void get_courses();
 	void get_course(std::string course_id);
+	void select(std::string course_id);
 	void exit();
 };
 #endif
