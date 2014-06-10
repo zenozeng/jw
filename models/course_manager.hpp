@@ -26,6 +26,8 @@ public:
     void set(std::string id, std::string key, std::string value);
 
     void remove(std::string id);
+
+    string list(void);
 };
 
 #endif
