@@ -7,7 +7,5 @@ test: *.cpp *.hpp
 	./a.out
 
 winbuild: *.cpp *.hpp
-	g++ -D _WIN32 hashlibpp/*.cpp -w *.cpp -o a.out
-	./a.out
+	g++ -D _WIN32 hashlibpp/*.cpp -w views/*.cpp *.cpp models/*.cpp -o a.out
 
-.PHONY: test build winbuild

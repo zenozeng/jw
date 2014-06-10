@@ -30,7 +30,7 @@ int main() {
     cout << "Default ID & password: admin, 123456. " << endl;
 
     session.login();
-    help()
+    help();
 
     // Start REPL
     while (true) {

@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <cstdlib>
-#include "lib.hpp"
-#include "database.hpp"
+#include "../lib.hpp"
+#include "../database.hpp"
 
 class CourseManager {
 

@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <vector>
 
 #ifdef _WIN32
 #include <direct.h>
@@ -43,5 +44,6 @@ std::string ls(std::string dir);
 void file_put_contents(std::string filename, std::string contents);
 void rm_r(std::string path);
 void mkpath(std::string path);
+std::vector<std::string> split(const std::string &s, char delim);
 
 #endif
