@@ -7,8 +7,8 @@ using namespace std;
  *
  */
 Session::Session() {
-    this->username = "";
     this->group = "";
+    this->id = "";
 }
 
 /**
@@ -16,24 +16,25 @@ Session::Session() {
  *
  */
 void Session::login() {
-    string username, password;
-    cout << "Username: ";
-    cin >> username;
+    string id, password;
+    UserManager user_manager;
+    cout << "ID: ";
+    cin >> id;
     // cin 保证了不为空，所以这里就不进行　username 的长度检查了
-    if(is_valid_username(username)) {
-        if(fexists("db/users/"+username)) {
+    if(is_valid_username(id)) {
+        if(user_manager.exists(id)) {
             cout << "Password: ";
             cin >> password;
             string hash = md5(password);
-            string hash_in_db = file_get_contents("db/users/"+username+"/password");
+            string hash_in_db = user_manager.get(id, "password");
             cout << "Hash: " << hash << endl;
             if( hash == hash_in_db ) {
                 cout << "Hash Match!" << endl;
                 cout << "Login success!" << endl;
-                string group = file_get_contents("db/users/"+username+"/group");
-                cout << "Username: " << username << endl;
+                string group = user_manager.get(id, "group");
+                cout << "ID: " << id << endl;
                 cout << "Group: " << group << endl;
-                this->username = username;
+                this->id = id;
                 this->group = group;
                 return;
             } else {
@@ -53,7 +54,7 @@ void Session::login() {
  *
  */
 void Session::logout() {
-    this->username = "";
+    this->id = "";
     this->group = "";
     cout << "Logout success!" << endl;
 }

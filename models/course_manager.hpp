@@ -27,7 +27,7 @@ public:
 
     void remove(std::string id);
 
-    string list(void);
+    std::string list(void);
 };
 
 #endif
