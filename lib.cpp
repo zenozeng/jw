@@ -41,10 +41,10 @@ void rm_r(std::string path) {
             std::string filename(ent->d_name);
             if(!(filename == "." || filename == "..")) {
                 std::string filepath = dir_path + filename;
-                struct stat st;
-                lstat(filepath.c_str(), &st);
-                if(S_ISDIR(st.st_mode)) {
-                    // id dir
+                struct stat info;
+                stat(filepath.c_str(), &info);
+                if ( info.st_mode & S_IFDIR ) {
+                    // is dir
                     rm_r(filepath);
                 } else {
                     // is file

@@ -10,8 +10,9 @@
 #include <cstring>
 #include <cstdlib>
 #include <stdio.h>
-#include <sys/stat.h>
 #include <vector>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #ifdef _WIN32
 #include <direct.h>
@@ -20,7 +21,6 @@
 
 #ifndef _WIN32
 #include <stdarg.h>
-#include <sys/stat.h>
 #include <unistd.h>
 #endif
 
