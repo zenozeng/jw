@@ -1,5 +1,5 @@
 build: *.cpp *.hpp
-	g++ hashlibpp/*.cpp -w *.cpp -o a.out
+	g++ hashlibpp/*.cpp -w *.cpp views/*.cpp models/*.cpp -o a.out
 	./a.out
 
 test: *.cpp *.hpp

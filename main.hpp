@@ -5,6 +5,8 @@
 #include "lib.hpp"
 #include "session.hpp"
 
+#include "views/student_view.hpp"
+
 void help();
 
 #endif

@@ -5,6 +5,7 @@ using namespace std;
 // 我们认为空与不存在是一致的
 
 void Database::set(string key, string value) {
+    key = "db/" + key;
     mkpath(key);
     file_put_contents(key, value);
 }
@@ -15,7 +16,11 @@ void Database::set(string key, string value) {
 // db.get("courses/001/name") => "微积分"
 
 string Database::get(string key) {
+    key = "db/" + key;
+
     if( fexists(key) ) {
+
+
         if ( key.at( key.length() - 1 ) == '/' ) {
             // this is object, list all keys, and join them
             return ls(key);
@@ -29,6 +34,8 @@ string Database::get(string key) {
 }
 
 void Database::remove(string key) {
+    key = "db/" + key;
+
     if( fexists(key) ) {
         if ( key.at( key.length() - 1 ) == '/' ) {
             // this is a dir

@@ -5,10 +5,11 @@ using namespace std;
 StudentView::StudentView () {
 }
 
-void StudentView::init (string user_id) {
-	this->id = user_id;
-	this->name = this->user_manager.get(user_id, "name");
-	cout << "Welcome, " << this->name << endl;
+void StudentView::init (string id) {
+	this->id = id;
+	cout << "Welcome, " << this->id << endl;
+    this->help();
+
 	string command;
 	cin >> command;
 	while (command != "exit") {
@@ -28,9 +29,15 @@ void StudentView::route (string command) {
 	if (this->status == "courses") return this->get_course(command);
 
 	this->status = command;
-	if (command == "help") return this->help();
-	if (command == "courses") return this->get_courses();
-	if (command == "exit") return this->exit();
+	if (command == "help") {
+            return this->help();
+        }
+	if (command == "courses") {
+            return this->get_courses();
+        }
+	if (command == "exit") {
+            return this->exit();
+        }
 	cout << "Command not found." << endl;
 	help();
 }
@@ -71,4 +78,8 @@ void StudentView::select (string course_id) {
 	string teacher_id = this->course_manager.get(course_id, "teacher");
 	this->student_course_manager.add(this->id, course_id);
 	this->user_manager.set(teacher_id, "courses/" + course_id + "/" + this->id, "");
+}
+
+void StudentView::exit () {
+    // simply do nothing to release control
 }

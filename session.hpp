@@ -4,13 +4,13 @@
 #include <iostream>
 #include <cstdlib>
 #include "lib.hpp"
+#include "models/user_manager.hpp"
 
 class Session {
 
 public:
     Session(void);
-    std::string username;
-    std::string password;
+    std::string id;
     std::string group;
     void login();
     void logout();
