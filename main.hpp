@@ -6,6 +6,7 @@
 #include "session.hpp"
 
 #include "views/student_view.hpp"
+#include "views/admin.hpp"
 
 void help();
 
