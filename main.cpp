@@ -35,9 +35,11 @@ int main() {
     session.login();
 
     // Prepare views
+    AdminView admin_view;
     StudentView student_view;
 
-    if (session.group == "administrator") {
+    if (session.group == "admin") {
+        admin_view.init(session.id);
     }
     else if (session.group == "teacher") {
     }
