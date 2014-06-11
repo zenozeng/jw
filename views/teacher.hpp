@@ -1,5 +1,5 @@
-#ifndef JW_STUDENT_VIEW_H
-#define JW_STUDENT_VIEW_H
+#ifndef JW_TEACHER_VIEW_H
+#define JW_TEACHER_VIEW_H
 
 #include <iostream>
 #include <vector>
@@ -9,7 +9,7 @@
 #include "../models/course_manager.hpp"
 #include "../models/student_course_manager.hpp"
 
-class StudentView {
+class TeacherView {
 
 private:
 	UserManager user_manager;
@@ -20,14 +20,14 @@ private:
 public:
 	std::string id;
 	std::string name;
-
-	StudentView(void);
+	
+	TeacherView(void);
 	void init(std::string user_id);
 	void help();
 	void route(std::string command);
 	void get_courses();
 	void get_course(std::string course_id);
-	void select(std::string course_id);
+	void give_score(std::string user_id);
 	void exit();
 };
 #endif

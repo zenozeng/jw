@@ -26,27 +26,31 @@ void StudentView::help () {
 }
 
 void StudentView::route (string command) {
-	if (this->status == "courses") return this->get_course(command);
+	string status = this->status[this->status.size() - 1];
+	if (status == "courses") {
+		this->status.pop_back();
+		return this->get_course(command);
+	}
 
-	this->status = command;
 	if (command == "help") {
             return this->help();
-        }
+    }
 	if (command == "courses") {
             return this->get_courses();
-        }
+    }
 	if (command == "exit") {
             return this->exit();
-        }
+    }
 	cout << "Command not found." << endl;
 	help();
 }
 
 void StudentView::get_courses () {
-	string course, teacher;
+	this->status.push_back("courses");
 
-	string course_id_str = this->course_manager.list(); // TODO
-	vector<string> courses = split(course_id_str, ' ');
+	string course, teacher;
+	string course_id_str = this->course_manager.get("/"); // TODO
+	vector<string> courses = split(course_id_str, '\n');
 
 	cout << "id	name	teacher" << endl;
 	for (int i = 0, length = courses.size(); i < length; i++) {
@@ -59,6 +63,8 @@ void StudentView::get_courses () {
 }
 
 void StudentView::get_course (string course_id) {
+	this->status.push_back("course");
+
 	string name = this->course_manager.get(course_id, "name");
 	string teacher_id = this->course_manager.get(course_id, "teacher");
 	string teacher_name = this->user_manager.get(teacher_id, "name");
@@ -75,6 +81,8 @@ void StudentView::get_course (string course_id) {
 }
 
 void StudentView::select (string course_id) {
+	this->status.push_back("select");
+
 	string teacher_id = this->course_manager.get(course_id, "teacher");
 	this->student_course_manager.add(this->id, course_id);
 	this->user_manager.set(teacher_id, "courses/" + course_id + "/" + this->id, "");

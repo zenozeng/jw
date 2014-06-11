@@ -17,6 +17,7 @@ public:
 	void add(std::string user_id, std::string course_id);
 	void set(std::string user_id, std::string course_id, std::string key, std::string value);
 	std::string get(std::string user_id, std::string course_id, std::string key);
+	std::string get(std::string user_id, std::string path);
 	void remove(std::string user_id, std::string course_id);
 };
 

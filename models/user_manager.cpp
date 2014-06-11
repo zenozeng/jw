@@ -27,6 +27,10 @@ string UserManager::get (string id, string key) {
 	return this->db.get("users/" + id + "/" + key);
 }
 
+string UserManager::get (string path) {
+	return this->db.get("users/" + path);
+}
+
 void UserManager::remove (string id) {
 	this->db.remove("users/" + id);
 }
