@@ -26,31 +26,13 @@ make build
 make winbuild
 ```
 
-## 约定
-
-我们直接用文件目录结构作为数据库来存储吧！
-
-### user
-
-默认用户：
-
-USERNAME: admin
-
-PWD: 123456
-
-#### group
-
-- student
-
-- teacher
-
-- administrator
-
-#### password
+## 关于 password
 
 这个是密码的简单单次 md5，
+也没有加盐，
 这里只是示意一下，
 实际使用请加强此块。
+至少换个hash算法，加个盐。
 
 ## License
 
