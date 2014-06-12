@@ -30,4 +30,5 @@ public:
 	void select(std::string course_id);
 	void exit();
 };
+
 #endif

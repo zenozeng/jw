@@ -18,7 +18,7 @@ void Database::set(string key, string value) {
 string Database::get(string key) {
     key = "db/" + key;
 
-    if( fexists(key) ) {
+//    if( fexists(key) ) {
 
 
         if ( key.at( key.length() - 1 ) == '/' ) {
@@ -28,9 +28,9 @@ string Database::get(string key) {
             // this is simple key value pair, return value
             return file_get_contents(key);
         }
-    } else {
-        return "";
-    }
+//    } else {
+//        return "";
+//    }
 }
 
 void Database::remove(string key) {

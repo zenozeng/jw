@@ -36,5 +36,5 @@ void UserManager::remove (string id) {
 }
 
 bool UserManager::exists (string id) {
-	return (this->db.get("users/" + id + "/") == "") ? false : true;
+	return (this->db.get("users/" + id + "/") != "");
 }

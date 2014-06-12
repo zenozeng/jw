@@ -11,9 +11,11 @@ void StudentView::init (string id) {
     this->help();
 
 	string command;
+	cout << "> ";
 	cin >> command;
 	while (command != "exit") {
 		route(command);
+		cout << "> ";
 		cin >> command;
 	}
 }
@@ -26,20 +28,24 @@ void StudentView::help () {
 }
 
 void StudentView::route (string command) {
-	string status = this->status[this->status.size() - 1];
+	int length = this->status.size() - 1;
+	string status;
+	if (length >= 0) {
+		status = this->status[this->status.size() - 1];
+	}
 	if (status == "courses") {
 		this->status.pop_back();
 		return this->get_course(command);
 	}
 
 	if (command == "help") {
-            return this->help();
+        return this->help();
     }
 	if (command == "courses") {
-            return this->get_courses();
+        return this->get_courses();
     }
 	if (command == "exit") {
-            return this->exit();
+        return this->exit();
     }
 	cout << "Command not found." << endl;
 	help();
@@ -49,7 +55,7 @@ void StudentView::get_courses () {
 	this->status.push_back("courses");
 
 	string course, teacher;
-	string course_id_str = this->course_manager.get("/"); // TODO
+	string course_id_str = this->course_manager.get("/");
 	vector<string> courses = split(course_id_str, '\n');
 
 	cout << "id	name	teacher" << endl;
