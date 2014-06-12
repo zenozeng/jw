@@ -16,6 +16,10 @@ string CourseManager::get(string id, string key) {
     return this->db.get("courses/"+id+"/"+key);
 }
 
+string CourseManager::get(string path) {
+	return this->db.get("courses/" + path);
+}
+
 string CourseManager::list() {
     return this->db.get("courses/");
 }
