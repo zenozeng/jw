@@ -35,8 +35,7 @@
 #endif
 
 
-bool fexists(std::string filename);
-bool fexists(const char *filename);
+bool pathExists(std::string path);
 bool is_valid_username(std::string str);
 std::string md5(std::string str);
 std::string file_get_contents(std::string filename);

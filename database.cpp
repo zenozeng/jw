@@ -18,9 +18,7 @@ void Database::set(string key, string value) {
 string Database::get(string key) {
     key = "db/" + key;
 
-    if( fexists(key) ) {
-
-
+    if( pathExists(key) ) {
         if ( key.at( key.length() - 1 ) == '/' ) {
             // this is object, list all keys, and join them
             return ls(key);
@@ -36,7 +34,7 @@ string Database::get(string key) {
 void Database::remove(string key) {
     key = "db/" + key;
 
-    if( fexists(key) ) {
+    if( pathExists(key) ) {
         if ( key.at( key.length() - 1 ) == '/' ) {
             // this is a dir
             rm_r(key);
@@ -46,11 +44,3 @@ void Database::remove(string key) {
         }
     }
 }
-
-
-// db/courses/01
-// list db/users/01/courses/
-// set db/users/01/courses
-
-// 约定：对象用目录结构存储
-// 　　　数组用\n来join，然后存储，这样文件会非常漂亮

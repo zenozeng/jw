@@ -3,13 +3,9 @@
 
 using namespace std;
 
-bool fexists(const std::string filename) {
-    return fexists(filename.c_str());
-}
-
-bool fexists(const char *filename) {
-    std::ifstream ifile(filename);
-    return ifile;
+bool pathExists(const std::string path) {
+    struct stat info;
+    return (stat(path.c_str(), &info) == 0);
 }
 
 bool is_valid_username(const std::string str) {

@@ -13,5 +13,11 @@ int main() {
     // rm_r("tmp/");
     cout << "mkpath" << endl;
     mkpath("a/b/c/d/e/xxx");
+    cout << "pathExists(\"db/\")" << endl;
+    cout << pathExists("db/") << endl;
+    cout << "pathExists(\"README.md\")" << endl;
+    cout << pathExists("README.md") << endl;
+    cout << "pathExists(\"notExistFile\")" << endl;
+    cout << pathExists("notExistFile") << endl;
     return 0;
 }
