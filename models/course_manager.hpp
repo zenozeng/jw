@@ -23,7 +23,7 @@ public:
 
     std::string get(std::string id, std::string key);
 
-	std::string get(std::string path);
+    std::string get(std::string path);
 
     void set(std::string id, std::string key, std::string value);
 

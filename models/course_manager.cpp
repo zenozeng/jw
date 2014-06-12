@@ -17,7 +17,7 @@ string CourseManager::get(string id, string key) {
 }
 
 string CourseManager::get(string path) {
-	return this->db.get("courses/" + path);
+    return this->db.get("courses/" + path);
 }
 
 string CourseManager::list() {
