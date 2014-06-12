@@ -16,10 +16,14 @@ void BaseView::init (string user_id) {
     // display welcome text
     this->welcome();
 
-    // start repl
+    // display help info
+    this->help();
+
+    // start REPL
+    cin.get(); // skip the very first enter
     do {
         cout << "JW> ";
-        cin >> cmd;
+        getline(cin, cmd);
         dispatch(cmd);
     } while ( cmd != "exit" );
 }
@@ -40,7 +44,6 @@ void BaseView::display_courses () {
         cout << courses[i] << "	" << course << "	" << teacher << endl;
     }
     cout << endl;
-    cout << "Type course for futher information." << endl;
 }
 
 void BaseView::display_course () {
