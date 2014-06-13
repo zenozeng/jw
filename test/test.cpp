@@ -13,8 +13,8 @@ int main() {
     // cout << "rm_r(\"tmp\")" << endl;
     // rm_r("tmp/");
     cout << "mkpath" << endl;
-    mkpath("a/b/c/d/e/xxx");
-    cout << "pathExists(\"db/\")" << endl;
+    // mkpath("a/b/c/d/e/xxx");
+    cout << "pathExists(\"db\")" << endl;
     cout << pathExists("db") << endl;
     cout << "pathExists(\"README.md\")" << endl;
     cout << pathExists("README.md") << endl;
