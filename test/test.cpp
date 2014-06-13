@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+	cout << 
     cout << "Test begin!" << endl;
     // cout << "file_put_contents" << endl;
     // file_put_contents("tmp", "Hello World");
@@ -14,7 +15,7 @@ int main() {
     cout << "mkpath" << endl;
     mkpath("a/b/c/d/e/xxx");
     cout << "pathExists(\"db/\")" << endl;
-    cout << pathExists("db/") << endl;
+    cout << pathExists("db") << endl;
     cout << "pathExists(\"README.md\")" << endl;
     cout << pathExists("README.md") << endl;
     cout << "pathExists(\"notExistFile\")" << endl;

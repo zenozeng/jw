@@ -7,8 +7,8 @@ test:
 	./a.out
 
 wintest: 
-	g++ -D _WIN32 hashlibpp/*.cpp -w lib.cpp test/test.cpp -o a.out
-	./a.out
+	g++ -D _WIN32 hashlibpp/*.cpp -w lib.cpp test/test.cpp -o a.exe
+	./a.exe
 
 winbuild: *.cpp *.hpp
 	g++ -D _WIN32 hashlibpp/*.cpp -w views/*.cpp *.cpp models/*.cpp -o a.exe

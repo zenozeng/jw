@@ -28,32 +28,35 @@ void StudentView::help () {
 }
 
 void StudentView::route (string command) {
+	if (command == "back" && this->status.size() > 0) {
+		this->status.pop_back();
+		return this->route(this->status[this->status.size() - 1]);
+	}
+	if (command == "exit") {
+		return this->exit();
+	}
+
 	int length = this->status.size() - 1;
 	string status;
 	if (length >= 0) {
 		status = this->status[this->status.size() - 1];
 	}
 	if (status == "courses") {
-		this->status.pop_back();
 		return this->get_course(command);
 	}
 
+	this->status.push_back(command);
 	if (command == "help") {
         return this->help();
     }
 	if (command == "courses") {
         return this->get_courses();
     }
-	if (command == "exit") {
-        return this->exit();
-    }
 	cout << "Command not found." << endl;
 	help();
 }
 
 void StudentView::get_courses () {
-	this->status.push_back("courses");
-
 	string course, teacher;
 	string course_id_str = this->course_manager.get("/");
 	vector<string> courses = split(course_id_str, '\n');
@@ -69,7 +72,6 @@ void StudentView::get_courses () {
 }
 
 void StudentView::get_course (string course_id) {
-	this->status.push_back("course");
 
 	string name = this->course_manager.get(course_id, "name");
 	string teacher_id = this->course_manager.get(course_id, "teacher");
@@ -84,6 +86,8 @@ void StudentView::get_course (string course_id) {
 	cout << "Time:	" << time << endl;
 	cout << "Location:	" << location << endl;
 	cout << endl;
+	cout << "Type select to take this course." << endl; 
+	cout << "Type back to go back." << endl;
 }
 
 void StudentView::select (string course_id) {

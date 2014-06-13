@@ -34,6 +34,13 @@
 #define MKDIR(a) mkdir((a),0755)
 #endif
 
+#ifdef _WIN32
+#define IN_WIN true
+#endif
+
+#ifndef _WIN32
+#define IN_WIN false
+#endif
 
 bool pathExists(std::string path);
 bool is_valid_username(std::string str);

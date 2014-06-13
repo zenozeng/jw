@@ -5,7 +5,11 @@ using namespace std;
 
 bool pathExists(const std::string path) {
     struct stat info;
-    return (stat(path.c_str(), &info) == 0);
+	if (IN_WIN) {
+		return (stat(path.substr(0, path.size() - 1).c_str(), &info) == 0);
+	} else {
+	   return (stat(path.c_str(), &info) == 0);
+	}
 }
 
 bool is_valid_username(const std::string str) {
