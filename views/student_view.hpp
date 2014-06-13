@@ -5,26 +5,17 @@
 #include <vector>
 #include "../lib.hpp"
 #include "../session.hpp"
-#include "../models/user_manager.hpp"
-#include "../models/course_manager.hpp"
+#include "base.hpp"
 #include "../models/student_course_manager.hpp"
 
-class StudentView {
+class StudentView: public BaseView{
 
 private:
-	UserManager user_manager;
-	CourseManager course_manager;
 	StudentCourseManager student_course_manager;
-	std::vector<std::string> status;
 
 public:
-	std::string id;
-	std::string name;
-
-	StudentView(void);
-	void init(std::string user_id);
-	void help();
-	void route(std::string command);
+	virtual void help();
+	virtual void dispatch(std::string cmd);
 	void get_courses();
 	void get_course(std::string course_id);
 	void select(std::string course_id);

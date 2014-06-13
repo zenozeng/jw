@@ -5,7 +5,7 @@ using namespace std;
 
 bool pathExists(const std::string path) {
     struct stat info;
-	if (IN_WIN) {
+	if (IN_WIN && path[path.size() - 1] == '/') {
 		return (stat(path.substr(0, path.size() - 1).c_str(), &info) == 0);
 	} else {
 	   return (stat(path.c_str(), &info) == 0);
