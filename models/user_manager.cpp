@@ -2,21 +2,9 @@
 
 using namespace std;
 
-UserManager::UserManager () {
-}
-
-void UserManager::add (string id, string name, string password) {
-	if (this->exists("users/" + id)) return;
-
-	string password_in_md5 = md5(password);
-
-	this->db.set("users/" + id + "/name", name);
-	this->db.set("users/" + id + "/password", password_in_md5);
-}
+UserManager::UserManager () {}
 
 void UserManager::set (string id, string key, string value) {
-	if (!this->exists("users/" + id)) return;
-
 	if (key == "password") {
 		value = md5(value);
 	}
@@ -32,7 +20,7 @@ string UserManager::get (string path) {
 }
 
 void UserManager::remove (string id) {
-	this->db.remove("users/" + id);
+	this->db.remove("users/" + id + "/");
 }
 
 bool UserManager::exists (string id) {

@@ -24,8 +24,14 @@ void BaseView::init (string user_id) {
     do {
         cout << "JW> ";
         getline(cin, cmd);
+        if( cmd == "exit") {
+            break;
+        }
+        if( cmd.size() == 0 ) {
+            continue;
+        }
         dispatch(cmd);
-    } while ( cmd != "exit" );
+    } while (true);
 }
 
 void BaseView::welcome () {
@@ -49,8 +55,11 @@ void BaseView::display_courses () {
 void BaseView::display_course () {
 	string course_id;
     cout << "Course ID: ";
-    cin >> course_id;
+    getline(cin, course_id);
     cout << "ID:	" << course_id << endl;
     cout << "Name:	" << course_manager.get(course_id, "name") << endl;
     cout << "Teacher:	" << course_manager.get(course_id, "teacher") << endl;
+    cout << "Semester:	" << course_manager.get(course_id, "semester") << endl;
+    cout << "Time:	" << course_manager.get(course_id, "time") << endl;
+    cout << "Location:	" << course_manager.get(course_id, "location") << endl;
 }
