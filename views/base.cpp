@@ -47,7 +47,7 @@ void BaseView::display_courses () {
 }
 
 void BaseView::display_course () {
-    string course_id;
+	string course_id;
     cout << "Course ID: ";
     cin >> course_id;
     cout << "ID:	" << course_id << endl;

@@ -18,7 +18,7 @@ public:
 	virtual void dispatch(std::string cmd);
 	void get_courses();
 	void get_course(std::string course_id);
-	void select(std::string course_id);
+	void select();
 	void exit();
 };
 
