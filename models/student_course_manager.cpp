@@ -6,7 +6,7 @@ StudentCourseManager::StudentCourseManager () {
 }
 
 string StudentCourseManager::list (string user_id) {
-	this->db.get("users/" + user_id + "/courses/");
+	return this->db.get("users/" + user_id + "/courses/");
 }
 
 void StudentCourseManager::add (string user_id, string course_id) {

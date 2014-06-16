@@ -21,5 +21,6 @@ public:
     void add_student_course();
     void remove_student_course();
     void set_student_course_score();
+    void get_student_course_score();
 };
 #endif
