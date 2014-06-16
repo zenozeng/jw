@@ -24,8 +24,11 @@ void BaseView::init (string user_id) {
     do {
         cout << "JW> ";
         getline(cin, cmd);
+        if( cmd == "exit") {
+            break;
+        }
         dispatch(cmd);
-    } while ( cmd != "exit" );
+    } while (true);
 }
 
 void BaseView::welcome () {
