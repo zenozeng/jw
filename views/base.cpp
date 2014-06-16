@@ -59,4 +59,7 @@ void BaseView::display_course () {
     cout << "ID:	" << course_id << endl;
     cout << "Name:	" << course_manager.get(course_id, "name") << endl;
     cout << "Teacher:	" << course_manager.get(course_id, "teacher") << endl;
+    cout << "Semester:	" << course_manager.get(course_id, "semester") << endl;
+    cout << "Time:	" << course_manager.get(course_id, "time") << endl;
+    cout << "Location:	" << course_manager.get(course_id, "location") << endl;
 }

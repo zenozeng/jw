@@ -65,25 +65,28 @@ void AdminView::display_users () {
     string id, name, group;
     vector<string> users = split(this->user_manager.get("/"), '\n');
 
-    cout << "id	name	group" << endl;
+    cout << "id name group" << endl;
     for (int i = 0, len = users.size(); i < len; i++) {
         id = users[i];
-        name = this->course_manager.get(id, "name");
-        group = this->course_manager.get(id, "group");
-        cout << id << "	" << name << "	" << group << "	" << endl;
+        name = this->user_manager.get(id, "name");
+        group = this->user_manager.get(id, "group");
+        cout << id << " " << name << " " << group << " " << endl;
     }
 }
 
 void AdminView::edit_user () {
-    string id, name, group;
+    string id, name, group, password;
     cout << "ID: ";
     getline(cin, id);
     cout << "Name: ";
     getline(cin, name);
     cout << "Group: ";
     getline(cin, group);
+    cout << "Password: ";
+    getline(cin, password);
     this->user_manager.set(id, "name", name);
     this->user_manager.set(id, "group", group);
+    this->user_manager.set(id, "password", password);
 }
 
 void AdminView::remove_user () {
@@ -94,15 +97,24 @@ void AdminView::remove_user () {
 }
 
 void AdminView::edit_course () {
-    string id, name, teacher;
+    string id, name, teacher, semester, time, location;
     cout << "ID: ";
     getline(cin, id);
     cout << "Name: ";
     getline(cin, name);
     cout << "Teacher: ";
     getline(cin, teacher);
+    cout << "Semester: ";
+    getline(cin, semester);
+    cout << "Time: ";
+    getline(cin, time);
+    cout << "Location: ";
+    getline(cin, location);
     this->course_manager.set(id, "name", name);
     this->course_manager.set(id, "teacher", teacher);
+    this->course_manager.set(id, "semester", semester);
+    this->course_manager.set(id, "time", time);
+    this->course_manager.set(id, "location", location);
 }
 
 void AdminView::remove_course () {
