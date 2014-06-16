@@ -31,10 +31,8 @@ void StudentView::select () {
 		cout << "Type the id of course to select it." << endl;
 		cout << "Type `quit` to quit." << endl;
 		cout << "JW>Select ";
-		cin >> course_id;
+		getline(cin, course_id);
 		if (course_id == "quit") {
-			cout << "JW> ";
-			cin >> course_id;
 			return;
 		}
 		if (course_manager.get(course_id + "/") == "") {

@@ -17,8 +17,8 @@ public:
 	virtual void help();
 	virtual void dispatch(std::string cmd);
 	void get_courses();
-	void get_course(std::string course_id);
-	void give_score(std::string user_id);
+	void get_course();
+	void give_score();
 	void exit();
 };
 #endif
