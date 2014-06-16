@@ -27,6 +27,9 @@ void BaseView::init (string user_id) {
         if( cmd == "exit") {
             break;
         }
+        if( cmd.size() == 0 ) {
+            continue;
+        }
         dispatch(cmd);
     } while (true);
 }
@@ -52,7 +55,7 @@ void BaseView::display_courses () {
 void BaseView::display_course () {
 	string course_id;
     cout << "Course ID: ";
-    cin >> course_id;
+    getline(cin, course_id);
     cout << "ID:	" << course_id << endl;
     cout << "Name:	" << course_manager.get(course_id, "name") << endl;
     cout << "Teacher:	" << course_manager.get(course_id, "teacher") << endl;

@@ -57,7 +57,7 @@ void AdminView::dispatch (string cmd) {
     } else if ( cmd == "set course score for student" ) {
         this->set_student_course_score();
     } else {
-        cout << "Invalid Command!" << endl;
+        cout << "Command not Found." << endl;
     }
 }
 
