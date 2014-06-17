@@ -122,12 +122,20 @@ Student Course Manager:
 
 ### CourseManager
 
-TODO
+就是基本的 CRUD，调用 Database 类的方法就行。
 
 ### Session
 
-TODO
+登陆会话管理，提供 login 和 logout，实例会保存当前用户的 id 及用户组信息。
 
 ## 心得体会
 
 - 早知道跨平台这么麻烦就用 boost 了！
+
+- Git 很好用。
+
+- 基于文件系统存储可以简化数据库构建。
+
+- 要是早点写单元测试的话，就不用手动调试调半天了。单元测试才是节约生命的做法。
+
+- 像 shell 一样基于 string 会带来一定的动态能力，但常常引入大量字符操作，有利有弊
