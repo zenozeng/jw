@@ -25,8 +25,9 @@ void AdminView::help () {
     cout << "	Student Course Manager:" << endl;
     cout << "		courses of student: list all courses of a student" << endl;
     cout << "		add course for student: add course for student" << endl;
-    cout << "		remove course for student: remove course for student" << endl;
-    cout << "		set course score for student: set course score for student" << endl;
+    cout << "		remove course of student: remove course of student" << endl;
+    cout << "		get course score of student: get course score of student" << endl;
+    cout << "		set course score of student: set course score of student" << endl;
 }
 
 void AdminView::dispatch (string cmd) {
@@ -50,12 +51,14 @@ void AdminView::dispatch (string cmd) {
         this->edit_course();
     } else if ( cmd == "courses of student" ) {
         this->display_student_courses();
-    } else if ( cmd == "add course for student" ) {
+    } else if ( cmd == "add course of student" ) {
         this->add_student_course();
-    } else if ( cmd == "remove course for student" ) {
+    } else if ( cmd == "remove course of student" ) {
         this->remove_student_course();
-    } else if ( cmd == "set course score for student" ) {
+    } else if ( cmd == "set course score of student" ) {
         this->set_student_course_score();
+    } else if ( cmd == "get course score of student" ) {
+        this->get_student_course_score();
     } else {
         cout << "Command not Found." << endl;
     }
@@ -125,10 +128,15 @@ void AdminView::remove_course () {
 }
 
 void AdminView::display_student_courses () {
-    string user_id;
+    string user_id, courses;
     cout << "User ID: ";
     getline(cin, user_id);
-    this->student_course_manager.list(user_id);
+    courses = this->student_course_manager.list(user_id);
+    if ( courses.size() == 0 ) {
+        cout << "No courses found" << endl;
+    } else {
+        cout << this->student_course_manager.list(user_id);
+    }
 }
 
 void AdminView::add_student_course () {
@@ -158,4 +166,13 @@ void AdminView::set_student_course_score () {
     cout << "Score: ";
     getline(cin, score);
     this->student_course_manager.set(user_id, course_id, "score", score);
+}
+
+void AdminView::get_student_course_score () {
+    string user_id, course_id, score;
+    cout << "User ID: ";
+    getline(cin, user_id);
+    cout << "Course ID: ";
+    getline(cin, course_id);
+    cout << this->student_course_manager.get(user_id, course_id, "score") << endl;
 }
