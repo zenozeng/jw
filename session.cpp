@@ -20,11 +20,13 @@ void Session::login() {
     UserManager user_manager;
     cout << "ID: ";
     cin >> id;
-    // cin 保证了不为空，所以这里就不进行　username 的长度检查了
+    // make sure username is valid
     if(is_valid_username(id)) {
+        // make sure user exists
         if(user_manager.exists(id)) {
             cout << "Password: ";
             cin >> password;
+            // check if md5 matches
             string hash = md5(password);
             string hash_in_db = user_manager.get(id, "password");
             cout << "Hash: " << hash << endl;
@@ -34,6 +36,7 @@ void Session::login() {
                 string group = user_manager.get(id, "group");
                 cout << "ID: " << id << endl;
                 cout << "Group: " << group << endl;
+                // update user's info
                 this->id = id;
                 this->group = group;
                 return;
@@ -50,7 +53,7 @@ void Session::login() {
 }
 
 /**
- * Login
+ * Logout
  *
  */
 void Session::logout() {
