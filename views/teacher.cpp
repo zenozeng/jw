@@ -43,19 +43,27 @@ void TeacherView::get_courses () {
 		course = course_manager.get(courses_id[i], "name");
 		cout << courses_id[i] << "	" << course << endl;
 	}
-	cout << "Type the id of course to see more information." << endl;
 }
 
 void TeacherView::get_course () {
-	string course_id;
+	string course_id, name, teacher_id, teacher_name, semester, time, location;
 	while (1) {
+		cout << "Type the id of course to see detail. Type `quit` to quit." << endl;
+		cout << "JW>my course> ";
 		getline(cin, course_id);
-		string name = this->course_manager.get(course_id, "name");
-		string teacher_id = this->course_manager.get(course_id, "teacher");
-		string teacher_name = this->user_manager.get(teacher_id, "name");
-		string semester = this->course_manager.get(course_id, "semester");
-		string time = this->course_manager.get(course_id, "time");
-		string location = this->course_manager.get(course_id, "location");
+		if (course_id == "quit") {
+			return;
+		}
+		name = this->course_manager.get(course_id, "name");
+		if (name == "") {
+			cout << "No such course." << endl;
+			continue;
+		}
+		teacher_id = this->course_manager.get(course_id, "teacher");
+		teacher_name = this->user_manager.get(teacher_id, "name");
+		semester = this->course_manager.get(course_id, "semester");
+		time = this->course_manager.get(course_id, "time");
+		location = this->course_manager.get(course_id, "location");
 
 		cout << "Name:	" << name << endl;
 		cout << "Teacher:	" << teacher_name << endl;
@@ -64,7 +72,7 @@ void TeacherView::get_course () {
 		cout << "Location:	" << location << endl;
 		cout << endl;
 
-		vector<string> students = split(this->user_manager.get(user_id, "courses/" + course_id), '\n');
+		vector<string> students = split(this->user_manager.get(user_id, "courses/" + course_id + "/"), '\n');
 		string student_name, student_score;
 		cout << "Students:" << endl;
 		cout << "ID	Name Score" << endl;
@@ -80,6 +88,23 @@ void TeacherView::get_course () {
 }
 
 void TeacherView::give_score () {
+	string course_id, student_id, score;
+	cout << "Type the course id to select course. " << endl;
+	cout << "JW>Score> ";
+	getline(cin, course_id);
+
+	while (1) {
+		cout << "Type the student id to give score. Type `quit` to quit." << endl;
+		cout << "JW>Score ";
+		getline(cin, student_id);
+		if (student_id == "quit") {
+			return;
+		}
+		cout << "Input thte score:" << endl;
+		cout << "JW>Score ";
+		getline(cin, score);
+		user_manager.set(student_id, "courses/" + course_id + "/score", score);
+	}
 }
 
 void TeacherView::exit () {
