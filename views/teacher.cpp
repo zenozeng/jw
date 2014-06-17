@@ -34,9 +34,6 @@ void TeacherView::dispatch (string cmd) {
 	if (cmd == "score") {
 		return this->give_score();
 	}
-	if (cmd == "exit") {
-		return this->exit();
-	}
 	cout << "Command not found." << endl;
 	help();
 }

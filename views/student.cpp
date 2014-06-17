@@ -1,4 +1,4 @@
-#include "student_view.hpp"
+#include "student.hpp"
 
 using namespace std;
 

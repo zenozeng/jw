@@ -5,7 +5,7 @@
 #include "lib/lib.hpp"
 #include "session.hpp"
 
-#include "views/student_view.hpp"
+#include "views/student.hpp"
 #include "views/teacher.hpp"
 #include "views/admin.hpp"
 
