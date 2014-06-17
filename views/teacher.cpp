@@ -2,7 +2,9 @@
 
 using namespace std;
 
-
+/**
+  * 输出帮助信息
+  */
 void TeacherView::help () {
 	cout << "Type following commands for further step:" << endl;
 	cout << "	help: get help" << endl;
@@ -13,6 +15,9 @@ void TeacherView::help () {
 	cout << "	exit: logout and exit" << endl;
 }
 
+/**
+  * 对输入的命令进行路由
+  */
 void TeacherView::dispatch (string cmd) {
 	if (cmd == "help") {
 		return this->help();
@@ -36,6 +41,9 @@ void TeacherView::dispatch (string cmd) {
 	help();
 }
 
+/**
+  * 显示教师代的所有课
+  */
 void TeacherView::get_courses () {
 	vector<string> courses_id = split(user_manager.get(user_id, "courses/"), '\n');
 	string course;
@@ -45,8 +53,13 @@ void TeacherView::get_courses () {
 	}
 }
 
+/**
+  * 显示某门课的详细信息及选课情况
+  */
 void TeacherView::get_course () {
 	string course_id, name, teacher_id, teacher_name, semester, time, location;
+
+	// 接受循环输入
 	while (1) {
 		cout << "Type the id of course to see detail. Type `quit` to quit." << endl;
 		cout << "JW>my course> ";
@@ -72,6 +85,7 @@ void TeacherView::get_course () {
 		cout << "Location:	" << location << endl;
 		cout << endl;
 
+		// 显示所有选中该门课的学生
 		vector<string> students = split(this->user_manager.get(user_id, "courses/" + course_id + "/"), '\n');
 		string student_name, student_score;
 		cout << "Students:" << endl;
@@ -87,6 +101,9 @@ void TeacherView::get_course () {
 	}
 }
 
+/**
+  * 给学生打分
+  */
 void TeacherView::give_score () {
 	string course_id, student_id, score;
 	cout << "Type the course id to select course. " << endl;
