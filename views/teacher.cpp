@@ -110,6 +110,7 @@ void TeacherView::give_score () {
 	cout << "JW>Score> ";
 	getline(cin, course_id);
 
+	// 接受循环输入
 	while (1) {
 		cout << "Type the student id to give score. Type `quit` to quit." << endl;
 		cout << "JW>Score ";
