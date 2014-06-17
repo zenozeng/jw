@@ -4,8 +4,28 @@ using namespace std;
 
 // 我们认为空与不存在是一致的
 
+string Database::parse_key(string key) {
+    string buf;
+    char ch;
+    // filter key string
+    for(int i = 0; i < key.size(); i++) {
+        ch = key[i];
+        if( ( ch >= '0' && ch <= '9' ) ||
+            ( ch >= 'a' && ch <= 'z' ) ||
+            ( ch >= 'A' && ch <= 'Z' ) ||
+            ( ch == '/' ) ||
+            ( ch == '.' ) ||
+            ( ch == '_' ) ||
+            ( ch == '-' ) ||
+            ( ch == ',' ) ) {
+            buf += ch;
+        }
+    }
+    return "db/" + buf;
+}
+
 void Database::set(string key, string value) {
-    key = "db/" + key;
+    key = parse_key(key);
     mkpath(key);
     file_put_contents(key, value);
 }
@@ -16,7 +36,7 @@ void Database::set(string key, string value) {
 // db.get("courses/001/name") => "微积分"
 
 string Database::get(string key) {
-    key = "db/" + key;
+    key = parse_key(key);
 
     if( pathExists(key) ) {
         if ( key.at( key.length() - 1 ) == '/' ) {
@@ -32,7 +52,7 @@ string Database::get(string key) {
 }
 
 void Database::remove(string key) {
-    key = "db/" + key;
+    key = parse_key(key);
 
     if( pathExists(key) ) {
         if ( key.at( key.length() - 1 ) == '/' ) {

@@ -39,26 +39,28 @@ void BaseView::welcome () {
 }
 
 void BaseView::display_courses () {
-    string course, teacher;
+    string course, teacher, teacher_id;
     string course_id_str = this->course_manager.get("/");
     vector<string> courses = split(course_id_str, '\n');
 
     cout << "id	name	teacher" << endl;
     for (int i = 0, length = courses.size(); i < length; i++) {
         course = this->course_manager.get(courses[i], "name");
-        teacher = this->course_manager.get(courses[i], "teacher");
+        teacher_id = this->course_manager.get(courses[i], "teacher");
+        teacher = this->user_manager.get(teacher_id, "name");
         cout << courses[i] << "	" << course << "	" << teacher << endl;
     }
     cout << endl;
 }
 
 void BaseView::display_course () {
-	string course_id;
+    string course_id, teacher_id;
     cout << "Course ID: ";
     getline(cin, course_id);
     cout << "ID:	" << course_id << endl;
     cout << "Name:	" << course_manager.get(course_id, "name") << endl;
-    cout << "Teacher:	" << course_manager.get(course_id, "teacher") << endl;
+    teacher_id = course_manager.get(course_id, "teacher");
+    cout << "Teacher:	" << user_manager.get(teacher_id, "name") << endl;
     cout << "Semester:	" << course_manager.get(course_id, "semester") << endl;
     cout << "Time:	" << course_manager.get(course_id, "time") << endl;
     cout << "Location:	" << course_manager.get(course_id, "location") << endl;
