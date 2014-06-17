@@ -12,9 +12,8 @@ private:
 public:
 	virtual void help();
 	virtual void dispatch(std::string cmd);
-	void get_courses();
-	void get_course();
-	void give_score();
-	void exit();
+	void get_courses();						// diaplay all courses under the teacher's teaching
+	void get_course();						// display the detail of course under the teacher's teaching
+	void give_score();						// give score to students
 };
 #endif

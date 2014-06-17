@@ -107,5 +107,3 @@ void TeacherView::give_score () {
 	}
 }
 
-void TeacherView::exit () {
-}
