@@ -1,7 +1,7 @@
 #ifndef JW_DATABASE_H
 #define JW_DATABASE_H
 
-#include "lib.hpp"
+#include "../lib/lib.hpp"
 
 class Database {
 

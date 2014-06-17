@@ -1,16 +1,16 @@
 build:
-	g++ hashlibpp/*.cpp -w *.cpp views/*.cpp models/*.cpp -o a.out
+	g++ *.cpp lib/hashlibpp/*.cpp -w lib/lib.cpp views/*.cpp models/*.cpp -o a.out
 	./a.out
 
 test:
-	g++ hashlibpp/*.cpp -w lib.cpp test/test.cpp -o a.out
+	g++ lib/hashlibpp/*.cpp -w lib/lib.cpp test/test.cpp -o a.out
 	./a.out
 
 wintest: 
-	g++ -D _WIN32 hashlibpp/*.cpp -w lib.cpp test/test.cpp -o a.exe
+	g++ -D _WIN32 lib/hashlibpp/*.cpp -w lib/lib.cpp test/test.cpp -o a.exe
 	./a.exe
 
 winbuild: *.cpp *.hpp
-	g++ -D _WIN32 hashlibpp/*.cpp -w views/*.cpp *.cpp models/*.cpp -o a.exe
+	g++ -D _WIN32 *.cpp lib/hashlibpp/*.cpp -w lib/lib.cpp views/*.cpp models/*.cpp -o a.exe
 
-.PHONY: build test winbuild
+.PHONY: build test winbuild wintest

@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../lib.hpp"
+#include "../lib/lib.hpp"
 #include "../session.hpp"
 #include "../models/user_manager.hpp"
 #include "../models/course_manager.hpp"

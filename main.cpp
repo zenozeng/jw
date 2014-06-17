@@ -2,19 +2,6 @@
 
 using namespace std;
 
-// void help() {
-//     // session view
-//     cout << "Commands:" << endl;
-//     cout << "    help, login, logout, change password" << endl;
-//     // teacher view
-//     cout << "Commands for Teachers:" << endl;
-//     cout << "    TODO" << endl;
-//     // Admin view
-//     cout << "Commands for Admin:" << endl;
-//     cout << "    user/create, user/info, user/update, user/delete" << endl;
-//     cout << "    course/create, course/info, course/update, course/delete" << endl;
-// }
-
 int main() {
     string cmd;
 
@@ -36,37 +23,18 @@ int main() {
 
     // Prepare views
     AdminView admin_view;
-	TeacherView teacher_view;
+    TeacherView teacher_view;
     StudentView student_view;
 
     if (session.group == "admin") {
         admin_view.init(session.id);
     }
     else if (session.group == "teacher") {
-		teacher_view.init(session.id);
+        teacher_view.init(session.id);
     }
     else if (session.group == "student") {
         student_view.init(session.id);
     }
     
-
-    // // Start REPL
-    // while (true) {
-    //     cout << "JW REPL> ";
-    //     cin >> cmd;
-
-    //     if (cmd == "help") {
-    //         help();
-    //     }
-
-    //     if (cmd == "login") {
-    //         session.login();
-    //     }
-
-    //     if (cmd == "logout") {
-    //         session.logout();
-    //     }
-    // };
-
     return 0;
 }

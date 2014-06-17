@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
-#include "lib.hpp"
+#include "lib/lib.hpp"
 #include "models/user_manager.hpp"
 
 class Session {

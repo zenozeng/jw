@@ -1,10 +1,6 @@
 #ifndef JW_STUDENT_VIEW_H
 #define JW_STUDENT_VIEW_H
 
-#include <iostream>
-#include <vector>
-#include "../lib.hpp"
-#include "../session.hpp"
 #include "base.hpp"
 #include "../models/student_course_manager.hpp"
 
