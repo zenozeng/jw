@@ -6,6 +6,10 @@ BaseView::BaseView () {}
 
 BaseView::~BaseView () {}
 
+/**
+ * Init View, start REPL
+ *
+ */
 void BaseView::init (string user_id) {
     string cmd;
 
@@ -34,10 +38,18 @@ void BaseView::init (string user_id) {
     } while (true);
 }
 
+/**
+ * Display welcome text
+ *
+ */
 void BaseView::welcome () {
     cout << "Welcome, " << this->user_name << "!" << endl;
 }
 
+/**
+ * Display all courses
+ *
+ */
 void BaseView::display_courses () {
     string course, teacher, teacher_id;
     string course_id_str = this->course_manager.get("/");
@@ -53,6 +65,10 @@ void BaseView::display_courses () {
     cout << endl;
 }
 
+/**
+ * Display the detail of given course
+ *
+ */
 void BaseView::display_course () {
     string course_id, teacher_id;
     cout << "Course ID: ";

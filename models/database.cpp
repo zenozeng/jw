@@ -44,6 +44,7 @@ void Database::set(string key, string value) {
  *
  * @example: get courses 001's name
  *     db.get("courses/001/name")
+ *
  */
 string Database::get(string key) {
     key = parse_key(key);
@@ -66,6 +67,7 @@ string Database::get(string key) {
  *
  * @example: remove courses 001 (note the slash at the end)
  *     db.remove("courses/001/");
+ *
  */
 void Database::remove(string key) {
     key = parse_key(key);

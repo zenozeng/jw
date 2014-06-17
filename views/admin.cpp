@@ -2,6 +2,10 @@
 
 using namespace std;
 
+/**
+ * Display help info
+ *
+ */
 void AdminView::help () {
     cout << "Type following commands for further step:" << endl;
     // common
@@ -30,6 +34,10 @@ void AdminView::help () {
     cout << "		set course score of student: set course score of student" << endl;
 }
 
+/**
+ * Dispatch command
+ *
+ */
 void AdminView::dispatch (string cmd) {
     if ( cmd == "" ) {
         return;
@@ -64,6 +72,10 @@ void AdminView::dispatch (string cmd) {
     }
 }
 
+/**
+ * Display all users
+ *
+ */
 void AdminView::display_users () {
     string id, name, group;
     vector<string> users = split(this->user_manager.get("/"), '\n');
@@ -77,6 +89,10 @@ void AdminView::display_users () {
     }
 }
 
+/**
+ * Edit user
+ *
+ */
 void AdminView::edit_user () {
     string id, name, group, password;
     cout << "ID: ";
@@ -92,6 +108,10 @@ void AdminView::edit_user () {
     this->user_manager.set(id, "password", password);
 }
 
+/**
+ * Remove user
+ *
+ */
 void AdminView::remove_user () {
     string id;
     cout << "ID: ";
@@ -99,6 +119,10 @@ void AdminView::remove_user () {
     this->user_manager.remove(id);
 }
 
+/**
+ * Edit course
+ *
+ */
 void AdminView::edit_course () {
     string id, name, teacher, semester, time, location;
     cout << "ID: ";
@@ -120,6 +144,10 @@ void AdminView::edit_course () {
     this->course_manager.set(id, "location", location);
 }
 
+/**
+ * Remove course
+ *
+ */
 void AdminView::remove_course () {
     string id;
     cout << "ID: ";
@@ -127,6 +155,10 @@ void AdminView::remove_course () {
     this->course_manager.remove(id);
 }
 
+/**
+ * Display all courses of a student
+ *
+ */
 void AdminView::display_student_courses () {
     string user_id, courses;
     cout << "User ID: ";
@@ -139,6 +171,10 @@ void AdminView::display_student_courses () {
     }
 }
 
+/**
+ * Add a course to a student
+ *
+ */
 void AdminView::add_student_course () {
     string user_id, course_id;
     cout << "User ID: ";
@@ -148,6 +184,10 @@ void AdminView::add_student_course () {
     this->student_course_manager.add(user_id, course_id);
 }
 
+/**
+ * Remove a course of a student
+ *
+ */
 void AdminView::remove_student_course () {
     string user_id, course_id;
     cout << "User ID: ";
@@ -157,6 +197,10 @@ void AdminView::remove_student_course () {
     this->student_course_manager.remove(user_id, course_id);
 }
 
+/**
+ * Set course score of a student
+ *
+ */
 void AdminView::set_student_course_score () {
     string user_id, course_id, score;
     cout << "User ID: ";
@@ -168,6 +212,10 @@ void AdminView::set_student_course_score () {
     this->student_course_manager.set(user_id, course_id, "score", score);
 }
 
+/**
+ * Get course score of a student
+ *
+ */
 void AdminView::get_student_course_score () {
     string user_id, course_id, score;
     cout << "User ID: ";
