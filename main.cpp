@@ -19,6 +19,7 @@ int main() {
     cout << "    Teacher: 210345, 123456" << endl;
     cout << "    Student: 3120100890, 123456" << endl;
 
+    // Login
     session.login();
 
     // Prepare views
@@ -26,6 +27,7 @@ int main() {
     TeacherView teacher_view;
     StudentView student_view;
 
+    // Display View based on user group
     if (session.group == "admin") {
         admin_view.init(session.id);
     }
