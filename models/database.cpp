@@ -2,8 +2,10 @@
 
 using namespace std;
 
-// 我们认为空与不存在是一致的
-
+/**
+ * Filter key string, only allow [0-9A-Za-z/\._-,]
+ *
+ */
 string Database::parse_key(string key) {
     string buf;
     char ch;
@@ -24,17 +26,25 @@ string Database::parse_key(string key) {
     return "db/" + buf;
 }
 
+/**
+ * Simple KVDB's set method, like js's localStorage.setItem
+ *
+ */
 void Database::set(string key, string value) {
     key = parse_key(key);
     mkpath(key);
     file_put_contents(key, value);
 }
 
-// 读一个　object 后面有斜杠，读简单ｋｅｙ　ｖａｌｕｅ后面无斜杠
-// db.get("courses/") => "001\n002\n003\n" => all keys in courses
-// db.get("courses/001/") => "name\nteacher\n..."
-// db.get("courses/001/name") => "微积分"
-
+/**
+ * Simple KVDB's get method, like js's localStorage.getItem
+ *
+ * @example: get courses 001's detail (note the slash at the end)
+ *     db.get("courses/001/");
+ *
+ * @example: get courses 001's name
+ *     db.get("courses/001/name")
+ */
 string Database::get(string key) {
     key = parse_key(key);
 
@@ -51,6 +61,12 @@ string Database::get(string key) {
     }
 }
 
+/**
+ * Simple KVDB's remove method, like js's localStorage.removeItem
+ *
+ * @example: remove courses 001 (note the slash at the end)
+ *     db.remove("courses/001/");
+ */
 void Database::remove(string key) {
     key = parse_key(key);
 
