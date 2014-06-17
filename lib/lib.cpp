@@ -3,6 +3,11 @@
 
 using namespace std;
 
+
+/**
+ * Check if file/dir exists
+ *
+ */
 bool pathExists(const std::string path) {
     struct stat info;
 	if (IN_WIN && path[path.size() - 1] == '/') {
@@ -12,6 +17,10 @@ bool pathExists(const std::string path) {
 	}
 }
 
+/**
+ * Check if the username is valid
+ *
+ */
 bool is_valid_username(const std::string str) {
     char ch;
     for (int i = 0; i < str.size(); ++i) {
@@ -23,6 +32,10 @@ bool is_valid_username(const std::string str) {
     return true;
 }
 
+/**
+ * Get the contents of the given file (like php's file_get_contents)
+ *
+ */
 std::string file_get_contents(const std::string filename) {
     std::ifstream t(filename.c_str());
     std::string str((std::istreambuf_iterator<char>(t)),
@@ -30,6 +43,10 @@ std::string file_get_contents(const std::string filename) {
     return str;
 }
 
+/**
+ * Remove directory and its contents recursively (like shell's rm -r)
+ *
+ */
 void rm_r(std::string path) {
     std::string dir_path = (path.at( path.length() - 1 ) == '/') ? path : path + "/";
 
@@ -57,6 +74,10 @@ void rm_r(std::string path) {
     }
 }
 
+/**
+ * List directory contents, '\n' as separator (like shell's ls)
+ *
+ */
 std::string ls(const std::string path) {
     std::string files = "";
     DIR *dir;
@@ -76,17 +97,29 @@ std::string ls(const std::string path) {
     }
 }
 
+/**
+ * Writes a string to a file (like php's file_put_contents)
+ *
+ */
 void file_put_contents(const std::string filename, const std::string contents) {
     std::ofstream outfile (filename.c_str());
     outfile << contents;
     outfile.close();
 }
 
+/**
+ * Calc the md5 hash of a string
+ *
+ */
 std::string md5(std::string str) {
     hashwrapper *myWrapper = new md5wrapper();
     return myWrapper->getHashFromString(str);
 }
 
+/**
+ * Make directory, and make parent directories as needed (like shell's mkdir -p)
+ *
+ */
 void mkpath(std::string path) {
     std::string current_path = "";
     for(int i = 0; i < path.size(); i++) {
