@@ -83,6 +83,15 @@ Type following commands for further step:
 
 #### Student
 
+```
+Type following commands for further step:
+	help: get help
+	courses: display courses for this term
+	course: display detail of the course
+	select: select courses
+	exit: logout and exit
+```
+
 ## 系统操作截图
 
 TODO
