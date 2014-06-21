@@ -27,7 +27,61 @@ TODO: 你再看看这里
 
 ## 系统用户手册
 
-TODO：这里把help贴上来，加上些介绍吧
+### Build & Run
+
+#### Linux
+
+```
+make build
+```
+
+#### Windows
+
+```
+make winbuild
+```
+
+### Usage
+
+#### Admin
+
+```
+Type following commands for further step:
+	Common Commands:
+		exit: logout
+		help: get help
+	Course Manager:
+		courses: list all courses
+		course: show detail of course
+		edit course: edit course
+		add course: add course
+		remove course: remove course
+	User Manager:
+		users: list all users
+		edit user: edit user
+		add user: add user
+		remove user: remove user
+	Student Course Manager:
+		courses of student: list all courses of a student
+		add course for student: add course for student
+		remove course of student: remove course of student
+		get course score of student: get course score of student
+		set course score of student: set course score of student
+```
+
+#### Teacher
+
+```
+Type following commands for further step:
+	help: get help
+	courses: display all courses under your taught
+	my courses: display all courses under your teaching
+	my course: display the detail of the course usder your teaching
+	score: give score to your student
+	exit: logout and exit
+```
+
+#### Student
 
 ## 系统操作截图
 
