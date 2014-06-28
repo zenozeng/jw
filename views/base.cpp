@@ -16,6 +16,10 @@ void BaseView::init (string user_id) {
     // set user info
     this->user_id = user_id;
     this->user_name = user_manager.get(user_id, "name");
+    int len = this->user_name.length();
+    if ( this->user_name.at( len - 1) == '\n' ) {
+        this->user_name.resize(len - 1);
+    }
 
     // display welcome text
     this->welcome();
