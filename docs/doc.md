@@ -17,13 +17,13 @@
 
 ### Features
 
-TODO: 你再看看这里
-
 - 基于命令行的交互式界面（CUI）
 
-- 与文件系统高度一致的数据库设计
+- 使用文件路径作为键值的简易 KVDB 数据库设计
 
 - 基本的 CRUD
+
+- 模块化，低耦合
 
 ## 系统用户手册
 
@@ -94,4 +94,17 @@ Type following commands for further step:
 
 ## 系统操作截图
 
-TODO
+![signin](img/admin/signin.png)
+
+#### 课程管理
+
+![course1](img/admin/course1.png)
+	
+![course2](img/admin/course2.png)
+
+#### 用户管理
+
+
+
+#### 选课管理
+
